@@ -1,0 +1,1 @@
+// For Firebase authentication logic

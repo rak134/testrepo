@@ -1,0 +1,858 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Navbar */
+.navbar {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure navbar stays on top */
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-nav li {
+    margin-left: 1.5rem;
+}
+
+.navbar-nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem;
+    display: block;
+}
+
+.navbar-nav a:hover {
+    background-color: #555;
+    border-radius: 4px;
+}
+
+.navbar-nav .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.navbar-nav .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Navbar Toggler for mobile */
+.navbar-toggler {
+    display: none; /* Hidden by default on larger screens */
+    background: none;
+    border: 1px solid white;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.navbar-toggler-icon {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: white;
+    position: relative;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: white;
+    left: 0;
+}
+
+.navbar-toggler-icon::before {
+    top: -6px;
+}
+
+.navbar-toggler-icon::after {
+    bottom: -6px;
+}
+
+/* Mobile Navbar Styles */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-toggler {
+        display: block; /* Show toggler on small screens */
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .navbar-collapse {
+        display: none; /* Hidden by default on small screens */
+        width: 100%;
+    }
+
+    .navbar-collapse.active {
+        display: block; /* Show when toggler is clicked */
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar-nav li {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+
+    .navbar-nav .btn {
+        display: block; /* Make button full width */
+        margin-top: 0.5rem;
+    }
+}
+
+/* Hero Slider */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Adjust height as needed */
+    overflow: hidden;
+}
+
+.hero-slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero-slider .slide.active {
+    opacity: 1;
+}
+
+.hero-slider .slide .container {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for text readability */
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.hero-slider .slide h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-slider .slide p {
+    font-size: 1.2rem;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.slider-btn.prev {
+    left: 1rem;
+}
+
+.slider-btn.next {
+    right: 1rem;
+}
+
+/* Plan Summary Section */
+.plan-summary {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.plan-summary h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.plan-cards-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+    justify-content: space-around; /* Distribute space around cards */
+    gap: 1rem; /* Space between cards */
+}
+
+.plan-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: calc(25% - 2rem); /* Adjust width for 4 cards, considering gap */
+    min-width: 250px; /* Minimum width before wrapping */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-bottom: 1rem; /* Space below cards when they wrap */
+}
+
+.plan-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.plan-card .rate {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 0.25rem;
+}
+
+.plan-card .btn-secondary {
+    display: inline-block;
+    background-color: #6c757d;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.plan-card .btn-secondary:hover {
+    background-color: #545b62;
+}
+
+/* Responsive adjustments for plan cards */
+@media (max-width: 992px) {
+    .plan-card {
+        width: calc(50% - 2rem); /* 2 cards per row */
+    }
+}
+
+@media (max-width: 576px) {
+    .plan-card {
+        width: 100%; /* 1 card per row */
+    }
+}
+
+/* Cost Calculator Section */
+.cost-calculator-section {
+    padding: 2rem 0;
+    background-color: #f9f9f9; /* Light background to differentiate */
+}
+
+.cost-calculator-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.calculator {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.calculator .form-group {
+    margin-bottom: 1rem;
+}
+
+.calculator label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.calculator input[type="number"],
+.calculator select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.calculator .btn-primary { /* Re-using .btn-primary from navbar, ensure it's suitable or create specific */
+    display: block;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.calculator .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.estimated-cost {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Sticky Social Media Icons */
+.sticky-social-media {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    z-index: 999; /* Below navbar but above most content */
+}
+
+.sticky-social-media .social-icon {
+    display: inline-block;
+    margin-bottom: 5px; /* Space between icons */
+    transition: transform 0.3s ease;
+}
+
+.sticky-social-media .social-icon img {
+    width: 40px; /* Adjust size as needed */
+    height: 40px;
+    border-radius: 5px 0 0 5px; /* Rounded corners on one side */
+}
+
+.sticky-social-media .social-icon:hover {
+    transform: translateX(-5px); /* Slight move on hover */
+}
+
+/* Footer */
+footer {
+    background: #f4f4f4;
+    color: #333;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem; /* Give some space above the footer */
+}
+
+/* Services Page Content */
+.services-page-content {
+    padding: 2rem 0;
+}
+
+.services-page-content .container h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.services-page-content .page-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-plan-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1.5rem; /* Slightly more gap perhaps */
+}
+
+.service-plan-card {
+    background: #fff; /* White background for cards */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 2rem; /* More padding */
+    width: calc(50% - 2rem); /* Aim for 2 cards per row on medium to large screens */
+    min-width: 300px; /* Minimum width before wrapping */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    text-align: left; /* Align text to left for more detail */
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+.service-plan-card h3 {
+    font-size: 1.8rem; /* Larger heading for service plans */
+    margin-bottom: 0.75rem;
+    color: #007bff; /* Primary color for plan titles */
+}
+
+.service-plan-card .plan-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+    min-height: 40px; /* Ensure consistent height for description */
+}
+
+.service-plan-card .rate {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.service-plan-card .rate strong {
+    color: #555;
+}
+
+.service-plan-card .btn-primary { /* Re-using .btn-primary, ensure its styling is appropriate */
+    display: inline-block; /* Or block if it should take full width */
+    background-color: #007bff;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.service-plan-card .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive adjustments for service plan cards */
+@media (max-width: 992px) { /* For tablets */
+    .service-plan-card {
+        width: calc(50% - 1.5rem); /* Keep 2 cards per row if space allows */
+    }
+}
+
+@media (max-width: 768px) { /* For smaller tablets / large phones */
+    .service-plan-card {
+        width: 100%; /* 1 card per row */
+        padding: 1.5rem;
+    }
+    .service-plan-card h3 {
+        font-size: 1.6rem;
+    }
+}
+
+/* Detailed Plan Page Content */
+.detailed-plan-content {
+    padding: 2rem 0;
+}
+
+.detailed-plan-content .container h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.detailed-plan-content .plan-name-placeholder {
+    color: #007bff;
+}
+
+.detailed-plan-content .page-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.plan-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 1.5rem;
+}
+
+.detail-category {
+    background: #f9f9f9;
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.detail-category h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #007bff; /* Accent border */
+}
+
+.detail-category ul {
+    list-style: disc; /* Default disc */
+    margin-left: 1.5rem; /* Indent list items */
+    padding-left: 0;
+}
+
+.detail-category ul li {
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+.detail-category.notes p {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+
+.detail-category.notes ul li {
+    font-size: 0.9rem;
+}
+
+/* About Us Page Content */
+.about-us-content {
+    padding: 2rem 0;
+}
+
+.about-us-content .container h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.about-us-content .page-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-section {
+    background: #fff; /* White background for sections */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.about-section h2 {
+    font-size: 1.8rem;
+    color: #007bff; /* Primary color for section titles */
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee; /* Subtle separator */
+}
+
+.about-section p {
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 1rem; /* Space between paragraphs if any */
+}
+
+.about-section ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+}
+
+.about-section ul li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem; /* Space for custom bullet or icon */
+    position: relative;
+    line-height: 1.6;
+    color: #444;
+}
+
+.about-section ul li::before {
+    content: '✔'; /* Custom bullet, could be an SVG or FontAwesome icon */
+    position: absolute;
+    left: 0;
+    top: 0px; /* Adjust alignment */
+    color: #007bff; /* Primary color for bullets */
+    font-weight: bold;
+}
+
+.about-section ul li strong {
+    color: #333;
+    font-weight: 600; /* Slightly bolder */
+}
+
+/* Contact Us Page Content */
+.contact-us-content {
+    padding: 2rem 0;
+}
+
+.contact-us-content .container h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.contact-us-content .page-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 2rem;
+}
+
+.contact-form-section {
+    flex: 2; /* Takes more space */
+    min-width: 300px; /* Minimum width before wrapping */
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.contact-details-section {
+    flex: 1; /* Takes less space */
+    min-width: 300px; /* Minimum width before wrapping */
+}
+
+.contact-form-section h2, .contact-details-section h2 {
+    font-size: 1.8rem;
+    color: #007bff;
+    margin-bottom: 1.5rem;
+}
+
+#contactForm .form-group {
+    margin-bottom: 1rem;
+}
+
+#contactForm label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #444;
+}
+
+#contactForm input[type="text"],
+#contactForm input[type="email"],
+#contactForm input[type="tel"],
+#contactForm textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+#contactForm textarea {
+    resize: vertical; /* Allow vertical resize */
+}
+
+#contactForm .btn-primary {
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.form-status-message {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 4px;
+    text-align: center;
+    display: none; /* Hidden by default */
+}
+
+.form-status-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+.form-status-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+
+.map-container {
+    width: 100%;
+    height: 350px; /* Adjust as needed */
+    border-radius: 8px;
+    overflow: hidden; /* Ensures iframe corners are rounded if border-radius is applied */
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+    border: none; /* Remove default iframe border */
+}
+
+.contact-details-section address {
+    font-style: normal;
+    line-height: 1.8;
+    color: #333;
+}
+
+.contact-details-section address a {
+    color: #007bff;
+    text-decoration: none;
+}
+.contact-details-section address a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments for contact page */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    .contact-form-section, .contact-details-section {
+        flex: 1 1 100%; /* Full width on smaller screens */
+    }
+}
+
+/* Get Quote Page Content */
+.get-quote-content {
+    padding: 2rem 0;
+}
+
+.get-quote-content .container h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.get-quote-content .page-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quote-form {
+    max-width: 700px; /* Slightly wider form */
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.quote-form h2 {
+    font-size: 1.8rem;
+    color: #007bff;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+.quote-form h2:first-of-type {
+    margin-top: 0;
+}
+
+.quote-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.quote-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #444;
+}
+
+.quote-form input[type="text"],
+.quote-form input[type="email"],
+.quote-form input[type="tel"],
+.quote-form input[type="number"],
+.quote-form select,
+.quote-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.quote-form textarea {
+    resize: vertical;
+}
+
+.quote-form .estimated-cost {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.quote-form .btn-primary {
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 1rem;
+}

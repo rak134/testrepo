@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanasu Design and Construction - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="navbar-brand">Kanasu Design & Construction</a>
+                <button class="navbar-toggler" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#projects">Projects</a></li> <!-- Placeholder, can be a section on home or separate page -->
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="get-quote.html" class="btn btn-primary">Get Quote</a></li>
+                        <li><a href="admin.html">Admin Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="hero-slider">
+        <div class="slide active" style="background-image: url('https://via.placeholder.com/1200x500/007bff/ffffff?text=Construction+Site+1');">
+            <div class="container">
+                <h2>Quality Construction</h2>
+                <p>Building your dreams with precision and care.</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('https://via.placeholder.com/1200x500/28a745/ffffff?text=Modern+Architecture+2');">
+            <div class="container">
+                <h2>Innovative Designs</h2>
+                <p>Creating spaces that inspire and function.</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('https://via.placeholder.com/1200x500/ffc107/000000?text=Interior+Finishing+3');">
+            <div class="container">
+                <h2>Expert Finishing</h2>
+                <p>Attention to detail in every corner.</p>
+            </div>
+        </div>
+        <button class="slider-btn prev">&lt;</button>
+        <button class="slider-btn next">&gt;</button>
+    </section>
+    <main>
+        <section class="plan-summary">
+            <div class="container">
+                <h2>Our Plans</h2>
+                <div class="plan-cards-container">
+                    <div class="plan-card">
+                        <h3>Basic Plan</h3>
+                        <p class="rate">₹1850/sqft</p>
+                        <p class="rate">₹185000/chadra</p>
+                        <a href="services.html#basic" class="btn btn-secondary">View Details</a>
+                    </div>
+                    <div class="plan-card">
+                        <h3>Standard Plan</h3>
+                        <p class="rate">₹2050/sqft</p>
+                        <p class="rate">₹205000/chadra</p>
+                        <a href="services.html#standard" class="btn btn-secondary">View Details</a>
+                    </div>
+                    <div class="plan-card">
+                        <h3>Premium Plan</h3>
+                        <p class="rate">₹2250/sqft</p>
+                        <p class="rate">₹225000/chadra</p>
+                        <a href="services.html#premium" class="btn btn-secondary">View Details</a>
+                    </div>
+                    <div class="plan-card">
+                        <h3>Luxury Plan</h3>
+                        <p class="rate">₹2500/sqft</p>
+                        <p class="rate">₹250000/chadra</p>
+                        <a href="services.html#luxury" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section class="cost-calculator-section">
+        <div class="container">
+            <h2>Estimate Your Construction Cost</h2>
+            <div class="calculator">
+                <div class="form-group">
+                    <label for="area-sqft">Area (in square feet):</label>
+                    <input type="number" id="area-sqft" placeholder="Enter area in sq. ft.">
+                </div>
+                <div class="form-group">
+                    <label for="plan-type-calculator">Select Plan Type:</label>
+                    <select id="plan-type-calculator">
+                        <option value="1850">Basic Plan (₹1850/sqft)</option>
+                        <option value="2050">Standard Plan (₹2050/sqft)</option>
+                        <option value="2250">Premium Plan (₹2250/sqft)</option>
+                        <option value="2500">Luxury Plan (₹2500/sqft)</option>
+                    </select>
+                </div>
+                <button id="calculate-cost-btn" class="btn btn-primary">Calculate Estimate</button>
+                <div id="estimated-cost-result" class="estimated-cost">
+                    Estimated Cost: ₹0
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Kanasu Design and Construction. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <div class="sticky-social-media">
+        <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" class="social-icon whatsapp">
+            <img src="https://via.placeholder.com/40x40/25D366/FFFFFF?text=WA" alt="WhatsApp">
+        </a>
+        <a href="https://instagram.com/YOUR_INSTAGRAM_HANDLE" target="_blank" class="social-icon instagram">
+            <img src="https://via.placeholder.com/40x40/E4405F/FFFFFF?text=IG" alt="Instagram">
+        </a>
+        <a href="https://facebook.com/YOUR_FACEBOOK_PAGE" target="_blank" class="social-icon facebook">
+            <img src="https://via.placeholder.com/40x40/1877F2/FFFFFF?text=FB" alt="Facebook">
+        </a>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
